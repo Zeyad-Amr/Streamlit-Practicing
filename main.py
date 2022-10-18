@@ -85,8 +85,8 @@ st.write("---")
 # video
 st.video("./samples/video.mp4")
 
-
 st.write("---")
+
 
 # checkbox
 def on_change_checkbox():
@@ -118,8 +118,8 @@ st.write("---")
 multiselect_val = st.multiselect("select from radio", options=(1, 2, 3))
 st.write(multiselect_val)
 
-
 st.write("---")
+
 
 # button
 def btn_click():
@@ -205,7 +205,6 @@ st.error("Error")
 # radio_bar_val=st.sidebar.radio("Select any graph", options=("Line", "Bar", "H-Bar"))
 st.write("---")
 
-
 slider_val = st.slider("This is slider", min_value=0, max_value=50, value=0)
 
 st.write("---")
@@ -258,13 +257,17 @@ if files:
                     item = list(data[option])
                     dates = date_converter(data["Date"])
                     index = np.arange(len(dates))
-                    plt.xticks(index,dates)
+                    plt.xticks(index, dates)
                     plt.gcf().autofmt_xdate()
                     plt.xlabel("Date")
                     plt.ylabel(option)
-                    plt.title(option+ " Chart")
+                    plt.title(option + " Chart")
                     plt.grid(True)
                     plt.legend()
                     plt.plot(index, item, label=file.name, color="black", )
                     plt.scatter(index, item, marker='o', edgecolors="red", color="yellow")
             st.write(figure)
+
+st.write("---")
+
+# Call Backs properties
