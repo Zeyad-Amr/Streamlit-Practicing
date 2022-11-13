@@ -1,3 +1,4 @@
+from msilib.schema import CheckBox
 import streamlit as st
 import pandas as pd
 from matplotlib import pyplot as plt
@@ -76,8 +77,6 @@ st.image("./samples/img.jpg", caption="This is my image", width=500)
 
 st.write("---")
 
-# audio
-st.audio("./samples/audio.mp3")
 
 st.write("---")
 
@@ -92,7 +91,8 @@ def on_change_checkbox():
     print("changed, ")
 
 
-state = st.checkbox("Checkbox 1", value=True, on_change=on_change_checkbox, key="checker")
+state = st.checkbox("Checkbox 1", value=True,
+                    on_change=on_change_checkbox, key="checker")
 
 if state:
     st.write("Checked")
@@ -130,7 +130,8 @@ st.button("Click Me", on_click=btn_click())
 st.write("---")
 
 # file upload
-images = st.file_uploader("Upload file", type=["png", "jpg"], accept_multiple_files=True)
+images = st.file_uploader(
+    "Upload file", type=["png", "jpg"], accept_multiple_files=True)
 if images is not None:
     for i in images:
         st.image(i)
@@ -138,7 +139,8 @@ if images is not None:
 st.write("---")
 
 # slider
-slider_val = st.slider("This is slider", min_value=50, max_value=150, value=100)
+slider_val = st.slider("This is slider", min_value=50,
+                       max_value=150, value=100)
 st.write(slider_val)
 
 st.write("---")
@@ -209,7 +211,8 @@ slider_val = st.slider("This is slider", min_value=0, max_value=50, value=0)
 st.write("---")
 # graph
 fig = plt.figure()
-plt.style.use("https://raw.githubusercontent.com/dhaitz/matplotlib-stylesheets/master/pitayasmoothie-dark.mplstyle")
+plt.style.use(
+    "https://raw.githubusercontent.com/dhaitz/matplotlib-stylesheets/master/pitayasmoothie-dark.mplstyle")
 x = np.linspace(0, slider_val, 200)
 plt.plot(x, np.sin(x))
 plt.plot(x, np.cos(x), '--')
@@ -219,7 +222,8 @@ st.write("---")
 
 # Columns
 st.write("Columns")
-col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12 = st.columns(12)
+col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12 = st.columns(
+    12)
 col3.write("Hi,")
 col5.write("Zeyad")
 col7.write("Amr")
